@@ -127,7 +127,22 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
 }
 
 int main() {
-   /* Type your code here */
+   string playlistTitle;
+   
+   cout << "Enter playlist's title:" << endl;
+   getline(cin, playlistTitle);
+   
+   PlaylistNode* headNode = nullptr;
+   
+   char option;
+   do{
+      PrintMenu(playlistTitle);
+      cout << endl << "Choose an option:" << endl;
+      cin >> option;
+      cin.ignore();
+
+      headNode = ExecuteMenu(option, playlistTitle, headNode);
+   } while (option != 'q');
    
    return 0;
 }
