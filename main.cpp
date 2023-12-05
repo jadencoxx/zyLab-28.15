@@ -92,7 +92,37 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
                curr = curr->GetNext();
             }
       }
-       
+   if(option == 't'){
+         cout << "OUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)" << endl;
+         int totalTime = 0;
+         PlaylistNode* curr = headNode;
+
+            while (curr != nullptr){
+               totalTime += curr->GetSongLength();
+               curr = curr->GetNext();
+            }
+               cout << "Total time: " << totalTime << " seconds" << endl;
+      }
+      
+      if(option == 'o'){
+         cout << playlistTitle << " - OUTPUT FULL PLAYLIST" << endl; 
+         if (headNode == nullptr)
+            cout << "Playlist is empty" << endl;
+         else{
+            int position = 1;
+            PlaylistNode* curr = headNode;
+            curr = curr->GetNext();
+            while(curr != nullptr){
+               cout << position << "." << endl;
+               curr->PrintPlaylistNode();
+               curr = curr->GetNext();
+               position++;
+               if(curr != nullptr)
+                  cout << endl;
+            }
+         }
+      }
+   return headNode;     
    
 }
 
