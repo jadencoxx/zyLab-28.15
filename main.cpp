@@ -1,3 +1,5 @@
+//Jaden Cox and Anna Leo
+
 #include <iostream>
 #include "PlaylistNode.h"
 
